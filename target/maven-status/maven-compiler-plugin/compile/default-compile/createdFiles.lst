@@ -1,0 +1,8 @@
+com\politecnicllevant\firstweb\service\MovieService.class
+com\politecnicllevant\firstweb\util\ConnectionManager.class
+com\politecnicllevant\firstweb\service\MovieServiceJdbcImpl.class
+com\politecnicllevant\firstweb\controller\HelloServlet.class
+com\politecnicllevant\firstweb\controller\MovieServlet.class
+com\politecnicllevant\firstweb\model\Movie.class
+com\politecnicllevant\firstweb\util\JdbcConnector.class
+com\politecnicllevant\firstweb\service\MovieServiceStaticImpl.class
