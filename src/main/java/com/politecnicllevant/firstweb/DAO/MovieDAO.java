@@ -1,13 +1,13 @@
-package com.politecnicllevant.firstweb.service;
+package com.politecnicllevant.firstweb.DAO;
 
-import com.politecnicllevant.firstweb.DTO.ShowMovieDTO;
 import com.politecnicllevant.firstweb.model.Movie;
 
 import java.util.List;
 
-public interface MovieService {
+public interface MovieDAO {
+    public static List<Movie> movies = List.of();
 
-    public List<ShowMovieDTO> findAll();
+    public List<Movie> findAll();
     public Movie findById(long id);
 
     Movie findById(Long id);

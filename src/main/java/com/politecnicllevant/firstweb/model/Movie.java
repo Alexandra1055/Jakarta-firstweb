@@ -3,6 +3,8 @@ package com.politecnicllevant.firstweb.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name= "movies")
 public class Movie {
@@ -13,9 +15,11 @@ public class Movie {
     protected String description;
     protected int year;
 
-
     @Transient //asi ya no lo tiene en cuenta en el constructor
     private float rate;
+
+    @OneToMany
+    List<Comment> comments;
 
     public Movie(long id, String title, String description, int year) {
         this.id = id;

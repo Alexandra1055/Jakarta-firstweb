@@ -1,15 +1,45 @@
 package com.politecnicllevant.firstweb.service;
 
 import com.politecnicllevant.firstweb.model.Movie;
+import com.politecnicllevant.firstweb.util.ConnectionManager;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-public interface MovieServiceStaticImpl {
-    public static List<Movie> movies = List.of();
+public abstract class MovieServiceStaticImpl implements MovieService {
+    @Override
+    public List<Movie> findAll() {
+        EntityManager em = ConnectionManager.getEntityManager();
+        List<Movie> movies= em.createQuery("select m from Movie m",Movie.class).getResultList();
 
-    public List<Movie> findAll();
-    public Movie findById(long id);
-    public boolean addMovie(Movie newMovie);
-    public Movie deleteMovieById(long id);
+        return movies;
+    }
 
+    @Override
+    public Movie findById(long id) {
+        EntityManager em = ConnectionManager.getEntityManager();
+        Movie movie = em.find(Movie.class, id);
+        em.persist(movie);
+        em.close();
+        return movie;
+
+    }
+
+    @Override
+    public boolean addMovie(Movie newMovie) {
+        List<Movie> movies = findAll();
+        if(movies.contains(newMovie)){
+            return false;
+        }
+        movies.add(newMovie);
+        return true;
+    }
+
+    @Override
+    public Movie deleteMovieById(long id) {
+        List<Movie> movies = findAll();
+
+        movies.remove(findById(id));
+        return findById(id);
+    }
 }

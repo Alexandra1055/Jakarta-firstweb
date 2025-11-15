@@ -1,10 +1,9 @@
 package com.politecnicllevant.firstweb.controller;
 
 import com.politecnicllevant.firstweb.model.Movie;
-import com.politecnicllevant.firstweb.service.MovieService;
 import com.politecnicllevant.firstweb.service.MovieServiceJdbcImpl;
+import com.politecnicllevant.firstweb.service.MovieService;
 import com.politecnicllevant.firstweb.service.MovieServiceStaticImpl;
-import com.politecnicllevant.firstweb.util.JdbcConnector;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,17 +11,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 
 //localhost:8080/firstweb/movie
 
 //@WebServlet(name = "movieServlet", value = "/firstweb/movie")
 public class MovieServlet extends HttpServlet {
-    private MovieServiceStaticImpl movieService = new MovieServiceJdbcImpl();
+    private MovieServiceStaticImpl movieService = new MovieServiceStaticImpl();
     public static List<Movie> movieList;
 
 

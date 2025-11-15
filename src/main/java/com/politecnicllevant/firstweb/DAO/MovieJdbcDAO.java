@@ -1,4 +1,4 @@
-package com.politecnicllevant.firstweb.service;
+package com.politecnicllevant.firstweb.DAO;
 
 import com.politecnicllevant.firstweb.model.Movie;
 import com.politecnicllevant.firstweb.util.ConnectionManager;
@@ -7,8 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MovieServiceJdbcImpl implements MovieService {
-
+public class MovieJdbcDAO implements MovieDAO {
     @Override
     public List<Movie> findAll() {
         String sql = "SELECT id, title, description, year FROM movies";
@@ -106,3 +105,4 @@ public abstract class MovieServiceJdbcImpl implements MovieService {
         }
     }
 }
+
