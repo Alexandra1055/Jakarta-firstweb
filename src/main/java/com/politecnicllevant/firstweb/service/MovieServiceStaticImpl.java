@@ -1,5 +1,6 @@
 package com.politecnicllevant.firstweb.service;
 
+import com.politecnicllevant.firstweb.DTO.ShowMovieDTO;
 import com.politecnicllevant.firstweb.model.Movie;
 import com.politecnicllevant.firstweb.util.ConnectionManager;
 import jakarta.persistence.EntityManager;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public abstract class MovieServiceStaticImpl implements MovieService {
     @Override
-    public List<Movie> findAll() {
+    public List<ShowMovieDTO> findAll() {
         EntityManager em = ConnectionManager.getEntityManager();
         List<Movie> movies= em.createQuery("select m from Movie m",Movie.class).getResultList();
 
